@@ -13,8 +13,7 @@ exports.calculate = function(req, res) {
   var operations = {
     'add':      function(a,b) { return +a + +b },
     'subtract': function(a,b) { return a - b },
-    'multiply': function(a,b) { return a * b },
-    'divide': function(a,b) { return a / b },
+	'multiply': function(a,b) { return a * b },
   };
 
   // Determine the operation
@@ -29,7 +28,7 @@ exports.calculate = function(req, res) {
     throw new Error("Invalid operation: " + req.query.operation);
   }
 
-  // Validate operands
+  // Validate operands testtest
 
   if (! req.query.operand1 ||
       ! req.query.operand1.match(/^(-)?[0-9\.]+(e(-)?[0-9]+)?$/) ||
@@ -47,4 +46,4 @@ exports.calculate = function(req, res) {
   var operand2 = parseInt(req.query.operand2, 10);
 
   res.json({ result: operation(req.query.operand1, req.query.operand2) });
-};
+}; 
